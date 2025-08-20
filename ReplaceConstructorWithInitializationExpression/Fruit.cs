@@ -10,8 +10,8 @@ record Fruit
     this.Saying = Saying;
   }
 
-  public string Name { get; private set; }
-  public double SizeInInches { get; private set; }
-  public double SugarInGrams { get; private set; }
-  public string Saying { get; private set; }
+  public string Name { get; set; }
+  public double SizeInInches { get; set; }
+  public double SugarInGrams { get; set; }
+  public string Saying { get; set; }
 }
