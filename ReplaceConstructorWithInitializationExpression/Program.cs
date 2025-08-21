@@ -1,6 +1,5 @@
 ﻿// Refactorlings by Producore
-// Copyright 2025-2025
-// All rights reserved.
+// © 2025 - All rights reserved
 
 var Line = 13;
 var Col = 41;
