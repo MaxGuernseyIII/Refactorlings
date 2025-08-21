@@ -10,6 +10,15 @@ record Position
       $"{Line},{Col}";
   }
 
-  public int Col { get; init; }
-  public int Line { get; init; }
+  public int Col
+  {
+    get; 
+    init;
+  }
+
+  public int Line
+  {
+    get; 
+    init;
+  }
 }
