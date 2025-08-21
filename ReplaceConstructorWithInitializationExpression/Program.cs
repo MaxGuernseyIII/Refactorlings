@@ -3,8 +3,11 @@
 
 var Line = 13;
 var Col = 41;
-var Pos = new Position(
-  Line, Col);
+var Pos = new Position
+{
+  Col = Line,
+  Line = Col
+};
 
 Console.Write(
   $"{Pos}: unexpected error");

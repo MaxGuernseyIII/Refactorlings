@@ -1,9 +1,7 @@
 ﻿// Refactorlings by Producore
 // © 2025 - All rights reserved
 
-record Position(
-  int Col,
-  int Line)
+record Position
 {
   public override
     string ToString()
@@ -11,4 +9,7 @@ record Position(
     return
       $"{Line},{Col}";
   }
+
+  public int Col { get; init; }
+  public int Line { get; init; }
 }
