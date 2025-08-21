@@ -1,8 +1,7 @@
-﻿using Refactorlings;
+﻿var Line = 13;
+var Col = 41;
+var Pos = new Position(
+  Line, Col);
 
-var Point = new Complex(.1, .1);
-var Z0 = Point;
-var Z1 = Z0 * Z0 + Point;
-var Z2 = Z1 * Z1 + Point;
-
-Console.WriteLine($"Z2 = {Z2}");
+Console.Write(
+  $"{Pos}: unexpected error");
