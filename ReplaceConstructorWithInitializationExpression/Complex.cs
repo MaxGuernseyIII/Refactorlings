@@ -1,16 +1,7 @@
-﻿namespace ReplaceConstructorWithInitializationExpression;
+﻿namespace Refactorlings;
 
-record Complex
+record Complex(double R, double I)
 {
-  public Complex(double R, double I)
-  {
-    this.R = R;
-    this.I = I;
-  }
-
-  public double R { get; init; }
-  public double I { get; init; }
-
   public static Complex operator +(
     Complex Left, Complex Right)
   {
