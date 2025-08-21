@@ -1,11 +1,29 @@
-﻿record Position(
-  int Col,
-  int Line)
+﻿record Position
 {
-  public override 
+  public Position(
+    int Col,
+    int Line)
+  {
+    this.Col = Col;
+    this.Line = Line;
+  }
+
+  public int Col
+  {
+    get;
+    init;
+  }
+
+  public int Line
+  {
+    get;
+    init;
+  }
+
+  public override
     string ToString()
   {
-    return 
+    return
       $"{Line},{Col}";
   }
 }
