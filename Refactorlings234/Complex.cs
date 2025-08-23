@@ -1,7 +1,7 @@
 ﻿// Refactorlings by Producore
 // © 2025 - All rights reserved
 
-readonly  struct Complex(
+readonly struct Complex(
   float R, float I)
 {
   readonly float I = I;
