@@ -4,18 +4,21 @@
 readonly record struct
   Complex(float R, float I)
 {
-  public float R { get; } = R;
-  public float I { get; } = I;
+  readonly float I = I;
+  readonly float R = R;
 
   public static
     Complex operator *(
-      Complex Left,
-      Complex Right)
+      Complex L, Complex R)
   {
     return new(
-      Left.R * Right.R -
-      Left.I * Right.I,
-      Left.R * Right.I +
-      Left.I * Right.R);
+      L.R * R.R - L.I * R.I,
+      L.R * R.I + L.I * R.R);
+  }
+
+  public override string
+    ToString()
+  {
+    return $"{R} + {I}i";
   }
 }
