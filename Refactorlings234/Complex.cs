@@ -13,23 +13,22 @@ readonly struct Complex(
       Complex A,
       Complex B)
   {
-    return A.R * B.R +
-           A.R * B.I +
-           A.I * B.R +
-           A.I * B.I;
+    return A.R*B.R + A.R*B.I +
+           A.I*B.R + A.I*B.I;
   }
 
   public static Complex
-    operator +(Complex L,
+    operator +(
+      Complex L,
       Complex R)
   {
     return new(
-      L.R + R.R,
-      L.I + R.I);
+      L.R + R.R, L.I + R.I);
   }
 
   public static Complex
-    operator +(Complex L,
+    operator +(
+      Complex L,
       Real R)
   {
     return new(
@@ -38,7 +37,8 @@ readonly struct Complex(
   }
 
   public static Complex
-    operator +(Complex L,
+    operator +(
+      Complex L,
       Imaginary I)
   {
     return new(L.R,
