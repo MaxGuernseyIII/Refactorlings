@@ -1,11 +1,16 @@
 ﻿// Refactorlings by Producore
 // © 2025 - All rights reserved
 
-readonly struct Complex(
-  float R, float I)
+readonly struct Complex
 {
-  readonly float I = I;
-  readonly float R = R;
+  readonly float I;
+  readonly float R;
+
+  public Complex(float R, float I)
+  {
+    this.I = I;
+    this.R = R;
+  }
 
   public static
     Complex operator *(
