@@ -1,10 +1,12 @@
 ﻿// Refactorlings by Producore
 // © 2025 - All rights reserved
 
-record Complex(
-  float R,
-  float I)
+readonly record struct
+  Complex(float R, float I)
 {
+  public float R { get; } = R;
+  public float I { get; } = I;
+
   public static
     Complex operator *(
       Complex Left,
@@ -16,7 +18,4 @@ record Complex(
       Left.R * Right.I +
       Left.I * Right.R);
   }
-
-  public float R { get; } = R;
-  public float I { get; } = I;
 }
