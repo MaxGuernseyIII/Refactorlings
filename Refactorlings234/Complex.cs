@@ -6,10 +6,9 @@ record Complex(
   float I)
 {
   public static
-    Complex
-    operator *(
-    Complex Left,
-    Complex Right)
+    Complex operator *(
+      Complex Left,
+      Complex Right)
   {
     return new(
       Left.R * Right.R -
