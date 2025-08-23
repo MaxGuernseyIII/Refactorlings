@@ -17,6 +17,6 @@ record Complex(
       Left.I * Right.R);
   }
 
-  public float R { get; init; } = R;
-  public float I { get; init; } = I;
+  public float R { get; } = R;
+  public float I { get; } = I;
 }
