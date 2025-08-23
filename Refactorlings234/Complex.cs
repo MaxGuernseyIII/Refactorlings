@@ -1,21 +1,61 @@
 ﻿// Refactorlings by Producore
 // © 2025 - All rights reserved
 
-readonly record struct
-  Complex(float R, float I)
+readonly struct Complex(
+  Real R,
+  Imaginary I)
 {
-  public float R { get; } = R;
-  public float I { get; } = I;
+  public Real R { get; } = R;
+
+  public Imaginary
+    I { get; } = I;
 
   public static
     Complex operator *(
-      Complex Left,
-      Complex Right)
+      Complex A,
+      Complex B)
   {
-    return new(
-      Left.R * Right.R -
-      Left.I * Right.I,
-      Left.R * Right.I +
-      Left.I * Right.R);
+    return A.R * B.R +
+           A.R * B.I +
+           A.I * B.R +
+           A.I * B.I;
+  }
+
+  public void Deconstruct(
+    out Real R,
+    out Imaginary I)
+  {
+    R = this.R;
+    I = this.I;
+  }
+
+  public static Complex
+    operator +(Complex L,
+      Complex R)
+  {
+    return new(L.R + R.R,
+      L.I + R.I);
+  }
+
+  public static Complex
+    operator +(Complex L,
+      Real R)
+  {
+    return new(L.R + R,
+      L.I);
+  }
+
+  public static Complex
+    operator +(Complex L,
+      Imaginary I)
+  {
+    return new(L.R,
+      L.I + I);
+  }
+
+  public override
+    string ToString()
+  {
+    return $"{R.V} + {I.V}i";
   }
 }
