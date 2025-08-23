@@ -5,10 +5,8 @@ readonly struct Complex(
   Real R,
   Imaginary I)
 {
-  public Real R { get; } = R;
-
-  public Imaginary
-    I { get; } = I;
+  readonly Real R = R;
+  readonly Imaginary I = I;
 
   public static
     Complex operator *(
@@ -21,19 +19,12 @@ readonly struct Complex(
            A.I * B.I;
   }
 
-  public void Deconstruct(
-    out Real R,
-    out Imaginary I)
-  {
-    R = this.R;
-    I = this.I;
-  }
-
   public static Complex
     operator +(Complex L,
       Complex R)
   {
-    return new(L.R + R.R,
+    return new(
+      L.R + R.R,
       L.I + R.I);
   }
 
@@ -41,7 +32,8 @@ readonly struct Complex(
     operator +(Complex L,
       Real R)
   {
-    return new(L.R + R,
+    return new(
+      L.R + R,
       L.I);
   }
 
@@ -57,5 +49,13 @@ readonly struct Complex(
     string ToString()
   {
     return $"{R.V} + {I.V}i";
+  }
+
+  public void Deconstruct(
+    out Real R,
+    out Imaginary I)
+  {
+    R = this.R;
+    I = this.I;
   }
 }
