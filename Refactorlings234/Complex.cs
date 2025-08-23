@@ -16,8 +16,8 @@ readonly record struct
       L.R * R.I + L.I * R.R);
   }
 
-  public override string
-    ToString()
+  public override 
+    string ToString()
   {
     return $"{R} + {I}i";
   }
