@@ -1,29 +1,43 @@
 ﻿// Refactorlings by Producore
 // © 2025 - All rights reserved
 
+class Real(float V)
+{
+  public float V { get; } = V;
+}
+
+class Imaginary(float V)
+{
+  public float V { get; } = V;
+}
+
 readonly struct Complex
 {
-  readonly float I;
-  readonly float R;
+  readonly Real R;
+  readonly Imaginary I;
 
-  public Complex(float R, float I)
+  public Complex(
+    Real R,
+    Imaginary I)
   {
-    this.I = I;
     this.R = R;
+    this.I = I;
   }
 
   public static
     Complex operator *(
       Complex L, Complex R)
   {
-    return new(
-      L.R * R.R - L.I * R.I,
-      L.R * R.I + L.I * R.R);
+    return new(new(
+        L.R.V * R.R.V -
+        L.I.V * R.I.V),
+      new(L.R.V * R.I.V +
+          L.I.V * R.R.V));
   }
 
-  public override 
+  public override
     string ToString()
   {
-    return $"{R} + {I}i";
+    return $"{R.V} + {I.V}i";
   }
 }
