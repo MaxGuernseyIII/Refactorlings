@@ -1,29 +1,18 @@
 ﻿// Refactorlings by Producore
 // © 2025 - All rights reserved
 
-readonly struct Complex
+readonly struct Complex(float R, float I)
 {
-  readonly float I;
-  readonly float R;
+  readonly float I = I;
+  readonly float R = R;
 
-  public Complex(float R, float I)
+  public static Complex operator *(Complex L, Complex R)
   {
-    this.I = I;
-    this.R = R;
+    return new(L.R * R.R - L.I * R.I, L.R * R.I + L.I * R.R);
   }
 
-  public static
-    Complex operator *(
-      Complex L, Complex R)
+  public override string ToString()
   {
-    return new(
-      L.R * R.R - L.I * R.I,
-      L.R * R.I + L.I * R.R);
-  }
-
-  public override 
-    string ToString()
-  {
-    return $"{R} + {I}i";
+    return $"{R}+{I}i";
   }
 }
