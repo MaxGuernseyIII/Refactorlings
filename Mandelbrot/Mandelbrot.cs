@@ -15,7 +15,7 @@ public class Complex(float R, float I)
       R * I * 2);
   }
 
-  public float Abs()
+  public float AbsSquared()
   {
     return I * I + R * R;
   }
@@ -39,7 +39,7 @@ public static class Mandelbrot
     {
       Z = C + Z.Square();
 
-      if (Z.Abs() > 4)
+      if (Z.AbsSquared() > 4)
         return true;
     }
 
