@@ -16,23 +16,3 @@ void Test(float F, float F1)
 
   Console.WriteLine($"Escape {F}, {F1}: {Z}");
 }
-
-var SearchWindow = (.630f, .640f);
-
-do
-{
-  var TestSpot = (SearchWindow.Item2 -
-                  SearchWindow.Item1) /
-                 2 + SearchWindow.Item1;
-
-  if (Mandelbrot.TestEscape(0,
-        TestSpot))
-    SearchWindow = (SearchWindow.Item1,
-      TestSpot);
-  else
-    SearchWindow = (TestSpot,
-      SearchWindow.Item2);
-
-} while(SearchWindow.Item2 - SearchWindow.Item1 > 0.00001f);
-
-Console.WriteLine($"Search Window narrowed to {SearchWindow}");
