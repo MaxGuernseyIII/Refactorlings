@@ -15,8 +15,8 @@ public static class Mandelbrot
       ZI = ZR * ZI * 2;
       ZR = T;
 
-      ZR = ZR + R;
-      ZI = ZI + I;
+      ZR += R;
+      ZI += I;
 
       if (ZI * ZI + ZR * ZR > 4)
         return true;
