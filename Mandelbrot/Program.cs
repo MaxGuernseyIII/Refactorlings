@@ -12,7 +12,7 @@ Test(0, .647f);
 
 void Test(float F, float F1)
 {
-  var Z = Mandelbrot.TestEscape(new Complex(F, F1));
+  var Z = Mandelbrot.TestEscape(F, F1);
 
   Console.WriteLine($"Escape {F}, {F1}: {Z}");
 }
@@ -25,7 +25,8 @@ do
                   SearchWindow.Item1) /
                  2 + SearchWindow.Item1;
 
-  if (Mandelbrot.TestEscape(new Complex(0, TestSpot)))
+  if (Mandelbrot.TestEscape(0,
+        TestSpot))
     SearchWindow = (SearchWindow.Item1,
       TestSpot);
   else

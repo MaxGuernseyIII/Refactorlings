@@ -1,47 +1,28 @@
 ﻿// Refactorlings by Producore
 // © 2025 - All rights reserved
 
-public class Complex(float R, float I)
-{
-  public static readonly Complex Zero =
-    new(0, 0);
-
-  public float R { get; } = R;
-  public float I { get; } = I;
-
-  public Complex Square()
-  {
-    return new(R * R - I * I,
-      R * I * 2);
-  }
-
-  public float Abs()
-  {
-    return I * I + R * R;
-  }
-
-  public static Complex operator +(
-    Complex Left, Complex Right)
-  {
-    return new(Right.R + Left.R,
-      Right.I + Left.I);
-  }
-}
-
 public static class Mandelbrot
 {
   public static bool TestEscape(
-    Complex C, int M = 100000)
+    float R, float I, int M = 100000)
   {
-    var Z = Complex.Zero;
-    
-    for (var S = 0; S < M; S++)
-    {
-      Z = C + Z.Square();
+    float ZR = 0f, ZI = 0f;
+    var S = 0;
 
-      if (Z.Abs() > 4)
+    do
+    {
+      var T = ZR * ZR - ZI * ZI;
+      ZI = ZR * ZI * 2;
+      ZR = T;
+
+      ZR = ZR + R;
+      ZI = ZI + I;
+
+      if (ZI * ZI + ZR * ZR > 4)
         return true;
-    }
+
+      S++;
+    } while (S < M);
 
     return false;
   }
