@@ -3,27 +3,26 @@
 
 public static class Mandelbrot
 {
-  public static bool TestEscape(
-    float R, float I, int M = 100000)
-  {
-    float ZR = 0f, ZI = 0f;
-    var S = 0;
-
-    do
+    public static bool TestEscape(float R, float I, int M = 100000)
     {
-      var T = ZR * ZR - ZI * ZI;
-      ZI = ZR * ZI * 2;
-      ZR = T;
+        float ZR = 0f, ZI = 0f;
+        var S = 0;
 
-      ZR += R;
-      ZI += I;
+        do
+        {
+            var T = ZR * ZR - ZI * ZI;
+            ZI = ZR * ZI * 2;
+            ZR = T;
 
-      if (ZI * ZI + ZR * ZR > 4)
-        return true;
+            ZR += R;
+            ZI += I;
 
-      S++;
-    } while (S < M);
+            if (ZI * ZI + ZR * ZR > 4)
+                return true;
 
-    return false;
-  }
+            S++;
+        } while (S < M);
+
+        return false;
+    }
 }
