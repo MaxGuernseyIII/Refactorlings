@@ -12,7 +12,7 @@ Test(0, .647f);
 
 void Test(float F, float F1)
 {
-    var Z = Mandelbrot.TestEscape(F, F1);
+    var Z = Mandelbrot.Mandelbrot.TestEscape(F, F1);
 
     Console.WriteLine($"Escape {F}, {F1}: {Z}");
 }

@@ -1,6 +1,8 @@
 ﻿// Refactorlings by Producore
 // © 2025 - All rights reserved
 
+namespace Mandelbrot;
+
 public static class Mandelbrot
 {
     public static bool TestEscape(float R, float I, int M = 100000)
