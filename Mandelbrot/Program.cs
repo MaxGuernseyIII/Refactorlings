@@ -1,6 +1,8 @@
 ﻿// Refactorlings by Producore
 // © 2025 - All rights reserved
 
+using Mandelbrot;
+
 Test(-2.001f, 0);
 Test(-1.999f, 0);
 Test(.249f, 0);
@@ -12,7 +14,7 @@ Test(0, .647f);
 
 void Test(float F, float F1)
 {
-    var Z = Mandelbrot.Mandelbrot.TestEscape(F, F1);
+    var Z = Mandelbrot.Mandelbrot.TestEscape(new Complex(F, F1));
 
     Console.WriteLine($"Escape {F}, {F1}: {Z}");
 }

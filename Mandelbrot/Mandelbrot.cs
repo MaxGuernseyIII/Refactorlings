@@ -3,23 +3,46 @@
 
 namespace Mandelbrot;
 
+public class Complex(float R, float I)
+{
+    public float R { get; } = R;
+    public float I { get; } = I;
+
+    public Complex Square()
+    {
+        var ZR = R;
+        var ZI = I;
+        var ZSquared = new Complex(ZR * ZR - ZI * ZI, ZR * ZI * 2);
+        return ZSquared;
+    }
+
+    public float AbsoluteSquared()
+    {
+        var ZR = R;
+        var ZI = I;
+        return ZI * ZI + ZR * ZR;
+    }
+
+    public static Complex Add(Complex Left, Complex Right)
+    {
+        return new Complex(Right.R + Left.R, Right.I + Left.I);
+    }
+
+    public static readonly Complex Zero = new Complex(0f, 0f);
+}
+
 public static class Mandelbrot
 {
-    public static bool TestEscape(float R, float I, int M = 100000)
+    public static bool TestEscape(Complex P, int M = 100000)
     {
-        float ZR = 0f, ZI = 0f;
         var S = 0;
+        var Z = Complex.Zero;
 
         do
         {
-            var T = ZR * ZR - ZI * ZI;
-            ZI = ZR * ZI * 2;
-            ZR = T;
+            Z = Complex.Add(P, Z.Square());
 
-            ZR += R;
-            ZI += I;
-
-            if (ZI * ZI + ZR * ZR > 4)
+            if (Z.AbsoluteSquared() > 4)
                 return true;
 
             S++;
